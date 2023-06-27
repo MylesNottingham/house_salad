@@ -45,6 +45,9 @@ gem "bootsnap", require: false
 # HTTP Client
 gem "faraday"
 
+# Secure Configuration
+gem "figaro"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
