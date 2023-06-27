@@ -10,7 +10,7 @@ feature "user can search for house members" do
     # And I select "Colorado" from the dropdown
     select "Colorado", from: :state
 
-    # And I click on "Locate Members from the House" button
+    # And I click on "Locate Members of the House" button
     click_on "Locate Members of the House"
 
     # Then my path should be "/search" with "state=CO" in the parameters
