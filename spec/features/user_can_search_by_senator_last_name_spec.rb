@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe 'Govt Search' do
-  describe 'happy path' do
-    before :each do
-      json_response = File.read("spec/fixtures/members_of_the_senate.json")
+RSpec.describe 'Senator Search' do
+  describe 'happy path', :vcr do
+    # before :each do
+    #   json_response = File.read("spec/fixtures/members_of_the_senate.json")
 
-      stub_request(:get, "https://api.propublica.org/congress/v1/116/senate/members.json").
-      to_return(status: 200, body: json_response)
-    end
+    #   stub_request(:get, "https://api.propublica.org/congress/v1/118/senate/members.json").
+    #   to_return(status: 200, body: json_response)
+    # end
 
-    it 'allows user to search for govt members' do
+    it 'allows user to search for a Senator by last name' do
       visit root_path
 
       fill_in :search, with: 'Sanders'
@@ -20,7 +20,7 @@ RSpec.describe 'Govt Search' do
       expect(page).to have_content("SenSanders")
     end
 
-    it 'allows user to search for another govt member' do
+    it 'allows user to search for another Senator by last name' do
       visit root_path
 
       fill_in :search, with: 'Booker'
